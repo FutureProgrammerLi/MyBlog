@@ -8,8 +8,14 @@ export default {
   methods: {
     how() {
       console.log('can i?')
+    },
+    saveState(){
+      localStorage.setItem("state",JSON.stringify(this.$store.state)) //刷新后state也会被保存,存了再loaclStorage
     }
   },
+  mounted() {
+      window.addEventListener('unload',this.saveState)       
+  }
 }
 </script>
 <style>

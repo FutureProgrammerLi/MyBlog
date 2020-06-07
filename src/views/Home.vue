@@ -10,7 +10,7 @@
       <!-- <div :style="{ background: '#fff', padding: '24px', minHeight: '380px' }">
         Content
       </div> -->
-      <Content />
+      <router-view :key="key"/>
     </a-layout-content>
     <a-layout-footer :style="{ textAlign: 'center' }">
       Ant Design ©2018 Created by Ant UED
@@ -33,6 +33,11 @@ export default {
     onBreakpoint(broken) {
       console.log(broken);
     },
+  },
+  computed: {
+    key() {
+      return this.$route.fullPath 
+    }
   },
 };
 </script>
